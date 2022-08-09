@@ -23,7 +23,9 @@ namespace BlazorTutorial.Models
             {
                 var myType = this.GetType();
                 var myPropInfo = myType.GetProperty(propertyName);
-                myPropInfo.SetValue(this, value, null);
+
+                var myValue = value;
+                myPropInfo.SetValue(this, myValue, null);
             }
         }
     }

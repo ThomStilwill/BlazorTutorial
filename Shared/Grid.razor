@@ -46,7 +46,7 @@
         @foreach(var columnName in Data.ColumnNames)
         {
             <MudTd DataLabel="FirstName">
-                <MudTextField @bind-Value="@context[columnName]"/>
+                <MudTextField Text=context[columnName] Value="context[columnName]"/>
             </MudTd>
         }
     </RowEditingTemplate>
