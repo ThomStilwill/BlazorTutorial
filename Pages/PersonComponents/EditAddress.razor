@@ -1,0 +1,26 @@
+﻿<input type="checkbox" @bind="Person.UseAddress"/> Use Address
+<br />
+
+@if (Person.UseAddress)
+{
+
+    <label>
+        <span class="label-text">Number and Street</span>
+        <span class="input-block">
+            <InputText id="Address" @bind-Value="Address.NumberAndStreet"/>
+            <ValidationMessage For="@(() => Address.NumberAndStreet)"/>
+        </span>
+    </label>
+    <br/>
+
+    <label>
+        <span class="label-text">City</span>
+        <span class="input-block">
+            <InputText id="City" @bind-Value="Address.City"/>
+            <ValidationMessage For="@(() => Address.City)"/>
+        </span>
+    </label>
+    <br/>
+    <br />
+    <br />
+}

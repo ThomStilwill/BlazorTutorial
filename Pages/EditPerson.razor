@@ -1,0 +1,50 @@
+﻿@page "/"
+@page "/person"
+@using BlazorTutorial.Pages.PersonComponents
+@using Blazored.FluentValidation
+
+<PageTitle>@title</PageTitle>
+
+<EditForm Model="@person" OnValidSubmit="@OnSubmit">
+    <FluentValidationValidator @ref="validator" DisableAssemblyScanning="@true"/>
+    <ValidationSummary></ValidationSummary>
+
+    <label>
+        <span class="label-text">First Name</span>
+        <span class="input-block">
+            <InputText id="FirstName" @bind-Value="person.FirstName"/>
+            <ValidationMessage For="@(() => person.FirstName)" />
+        </span>
+    </label>
+    <br/>
+
+    <label>
+        <span class="label-text">Last Name</span>
+        <span class="input-block">
+            <InputText id="LastName" @bind-Value="person.LastName" />
+            <ValidationMessage For="@(() => person.FirstName)" />
+        </span>
+    </label>
+    <br />
+
+    <label>
+        <span class="label-text">MiddleInitial</span>
+        <span class="input-block">
+            <InputText id="MiddleInitial" @bind-Value="person.MiddleInitial" />
+        </span>
+    </label>
+    <br />
+    
+    
+    
+    <EditAddress Person="@person"></EditAddress>
+    
+    <EditActivity Person="@person"></EditActivity>
+
+    
+    <br />
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-secondary" @onclick="PartialValidate">Partial Validation</button>
+
+</EditForm>
+

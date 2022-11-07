@@ -1,0 +1,26 @@
+﻿<input type="checkbox" @bind="Person.UseActivity" /> Use Activity
+<br />
+
+@if (Person.UseActivity)
+{
+
+    <label>
+        <span class="label-text">Number and Street</span>
+        <span class="input-block">
+            <InputDate @bind-Value="Activity.ActivityDate"/>
+            <ValidationMessage For="@(() => Activity.ActivityDate)"/>
+        </span>
+    </label>
+    <br/>
+
+    <label>
+        <span class="label-text">City</span>
+        <span class="input-block">
+            <InputText @bind-Value="Activity.Description"/>
+            <ValidationMessage For="@(() => Activity.Description)"/>
+        </span>
+    </label>
+    <br/>
+    <br />
+    <br />
+}
